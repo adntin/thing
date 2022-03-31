@@ -3,13 +3,13 @@ import Things from './Things';
 const func = async () => {
 //   setTimeout(async () => {
 //     const response = await http.request({
-//       url: '/things/LDS.MULTI-PROTOCOL-G2__2.0.0',
+//       url: '/schemas/Light_A60__2.0.0',
 //       method: 'get',
 //     });
 //     console.log(response);
 //   }, 3000);
   setTimeout(async () => {
-    const response = await import("./schemas/LDS.MULTI-PROTOCOL-G2__2.0.0.json");
+    const response = await import("./schemas/Light_A60__2.0.0.json");
     console.log(response);
   }, 3000);
 
@@ -18,12 +18,12 @@ const func = async () => {
 //     {
 //       id: 'd1',
 //       directId: '',
-//       schemaUrl: 'LDS.MULTI-PROTOCOL-G2__2.0.0',
+//       schemaUrl: 'Light_A60__2.0.0',
 //     },
 //     {
 //       id: 'd2',
 //       directId: 'd1',
-//       schemaUrl: 'LDS.ZB-DIMLight-0016__2.0.0',
+//       schemaUrl: 'Gateway_G110__2.0.0',
 //     },
 //   ];
 //   const things = new Things(userId, devices);

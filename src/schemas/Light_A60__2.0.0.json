@@ -1,7 +1,9 @@
 {
-  "pm": "LDS.ZBT-DIMConnector-D0001",
+  "pm": "Light_A60__2.0.0",
   "title": "ZB RIM Light",
-  "protocolCON": ["Zigbee"],
+  "protocolCON": [
+    "Zigbee"
+  ],
   "protocolLAN": [],
   "protocolWAN": [],
   "version": {
@@ -12,7 +14,9 @@
   },
   "extends": {
     "device": {
-      "net": ["Zigbee"]
+      "net": [
+        "Zigbee"
+      ]
     },
     "app": {}
   },
@@ -27,7 +31,10 @@
           "type": "int",
           "title": "开/关",
           "description": "可读可写可上报",
-          "enum": [0, 1],
+          "enum": [
+            0,
+            1
+          ],
           "default": 1,
           "mode": 7
         },
@@ -100,7 +107,9 @@
           "mode": 5
         }
       ],
-      "actions": [{}],
+      "actions": [
+        {}
+      ],
       "events": [
         {
           "code": "Occupancy",
