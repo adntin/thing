@@ -1,0 +1,113 @@
+{
+  "pm": "LDS.ZBT-DIMConnector-D0001",
+  "title": "ZB RIM Light",
+  "protocolCON": ["Zigbee"],
+  "protocolLAN": [],
+  "protocolWAN": [],
+  "version": {
+    "instance": "2.0.0",
+    "protocolVer": "2.0.0",
+    "dmVer": "1.0.0",
+    "fwVer": "1.04.02"
+  },
+  "extends": {
+    "device": {
+      "net": ["Zigbee"]
+    },
+    "app": {}
+  },
+  "devices": [
+    {
+      "ep": "01",
+      "title": "灯",
+      "description": "这是一个教室面板灯",
+      "props": [
+        {
+          "code": "OnOff",
+          "type": "int",
+          "title": "开/关",
+          "description": "可读可写可上报",
+          "enum": [0, 1],
+          "default": 1,
+          "mode": 7
+        },
+        {
+          "code": "Dimming",
+          "type": "int",
+          "title": "亮度",
+          "description": "可读可写可上报",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 100,
+          "mode": 7
+        },
+        {
+          "code": "Temp",
+          "type": "double",
+          "title": "温度",
+          "description": "可读可上报",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 25.0,
+          "mode": 5
+        },
+        {
+          "code": "TempMin",
+          "type": "double",
+          "title": "支持的最低温度(℃)",
+          "description": "只读",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 20.0,
+          "mode": 1
+        },
+        {
+          "code": "TempMax",
+          "type": "double",
+          "title": "支持的最高温度(℃)",
+          "description": "只读",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 125.0,
+          "mode": 1
+        },
+        {
+          "code": "pirSet",
+          "type": "bool",
+          "title": "人体红外检测使能",
+          "description": "可读可写",
+          "default": true,
+          "mode": 3
+        },
+        {
+          "code": "pirInstallStatus",
+          "type": "bool",
+          "title": "人体红外安装状态",
+          "description": "只读",
+          "default": true,
+          "mode": 1
+        },
+        {
+          "code": "Occupancy",
+          "type": "bool",
+          "title": "是否有人移动",
+          "description": "可读可上报",
+          "default": false,
+          "mode": 5
+        }
+      ],
+      "actions": [{}],
+      "events": [
+        {
+          "code": "Occupancy",
+          "type": "bool",
+          "title": "是否有人移动"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "pm": "LDS.ZB-DIMLight-0016",
+  "title": "ZB RIM Light",
+  "protocolCON": [
+    "Zigbee"
+  ],
+  "protocolLAN": [],
+  "protocolWAN": [],
+  "version": {
+    "instance": "2.0.0",
+    "protocolVer": "2.0.0",
+    "dmVer": "1.0.0",
+    "fwVer": "1.04.02"
+  },
+  "extends": {
+    "device": {
+      "net": [
+        "Zigbee"
+      ]
+    },
+    "app": {}
+  },
+  "devices": [
+    {
+      "ep": "01",
+      "title": "灯",
+      "description": "这是一个教室面板灯",
+      "props": [
+        {
+          "code": "OnOff",
+          "type": "int",
+          "title": "开/关",
+          "description": "可读可写可上报",
+          "enum": [
+            0,
+            1
+          ],
+          "default": 1,
+          "mode": 7
+        },
+        {
+          "code": "Dimming",
+          "type": "int",
+          "title": "亮度",
+          "description": "可读可写可上报",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 100,
+          "mode": 7
+        },
+        {
+          "code": "Temp",
+          "type": "double",
+          "title": "温度",
+          "description": "可读可上报",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 25.0,
+          "mode": 5
+        },
+        {
+          "code": "TempMin",
+          "type": "double",
+          "title": "支持的最低温度(℃)",
+          "description": "只读",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 20.0,
+          "mode": 1
+        },
+        {
+          "code": "TempMax",
+          "type": "double",
+          "title": "支持的最高温度(℃)",
+          "description": "只读",
+          "min": -25.0,
+          "max": 200.0,
+          "step": 0.01,
+          "default": 125.0,
+          "mode": 1
+        },
+        {
+          "code": "pirSet",
+          "type": "bool",
+          "title": "人体红外检测使能",
+          "description": "可读可写",
+          "default": true,
+          "mode": 3
+        },
+        {
+          "code": "pirInstallStatus",
+          "type": "bool",
+          "title": "人体红外安装状态",
+          "description": "只读",
+          "default": true,
+          "mode": 1
+        },
+        {
+          "code": "Occupancy",
+          "type": "bool",
+          "title": "是否有人移动",
+          "description": "可读可上报",
+          "default": false,
+          "mode": 5
+        }
+      ],
+      "actions": [
+        {
+          "code": "setStartUpConfig",
+          "title": "set start up config",
+          "in": {
+            "type": "object",
+            "params": [
+              {
+                "code": "startupConfigMode",
+                "type": "bool",
+                "title": "上电可配置使能",
+                "default": false
+              },
+              {
+                "code": "startupLevel",
+                "type": "int",
+                "title": "上电的亮度（最大值应该是100？）",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+                "default": 0
+              },
+              {
+                "code": "startupCCT",
+                "type": "int",
+                "title": "上电的色温（应该是1800到6500？）",
+                "min": 0,
+                "max": 65535,
+                "step": 1,
+                "default": 0
+              },
+              {
+                "code": "startupRGB",
+                "type": "int",
+                "title": "上电的颜色",
+                "min": -2147483647,
+                "max": 2147483647,
+                "step": 1,
+                "default": -2147483647
+              },
+              {
+                "code": "startupOnoff",
+                "type": "bool",
+                "title": "上电后默认开灯",
+                "default": true
+              }
+            ]
+          }
+        },
+        {
+          "code": "setCircadianRhythm",
+          "title": "set Circadian Rhythm",
+          "in": {
+            "type": "object",
+            "params": [
+              {
+                "code": "enable",
+                "type": "bool"
+              },
+              {
+                "code": "fading",
+                "type": "int",
+                "min": 0,
+                "max": 65536,
+                "uint": "second"
+              },
+              {
+                "code": "rule",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "params": [
+                    {
+                      "code": "time",
+                      "type": "string"
+                    },
+                    {
+                      "code": "OnOff",
+                      "type": "boole",
+                      "default": true
+                    },
+                    {
+                      "code": "Dimming",
+                      "type": "int",
+                      "min": 1,
+                      "max": 100
+                    },
+                    {
+                      "code": "CCT",
+                      "type": "int",
+                      "min": 1800,
+                      "max": 6500,
+                      "default": 2700
+                    },
+                    {
+                      "code": "RGBW",
+                      "type": "int",
+                      "min": -2147483647,
+                      "max": 2147483647,
+                      "default": -2147483647
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "code": "Occupancy",
+          "type": "bool",
+          "title": "是否有人移动"
+        }
+      ]
+    }
+  ]
+}
